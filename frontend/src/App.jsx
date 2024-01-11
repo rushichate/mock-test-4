@@ -8,7 +8,7 @@ function App() {
   const [notices, setNotices] = useState([])
 
      useEffect(()=>{
-     axios.get(`http://localhost:8000/notices/`)
+     axios.get(`https://awful-pink-baseball-cap.cyclic.app/notices/`)
      .then(res=> setNotices(res.data))
      .catch(error=>console.error('Error fetching notices:',error))
     },[])
@@ -18,7 +18,7 @@ function App() {
     }
 
     const handleDelete = (id)=>{
-      axios.delete(`http://localhost:8000/notices/${id}`)
+      axios.delete(`https://awful-pink-baseball-cap.cyclic.app/notices/${id}`)
       .then(()=>{setNotices(notices.filter(notice=>notice._id!==id))
        alert("Notice Deleted") })
       .catch(error=>console.error('Error deleting notice:',error))

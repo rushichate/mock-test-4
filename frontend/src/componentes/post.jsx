@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import './Post.css'
 
 
 function Post({onAddNotice}) {
@@ -13,9 +14,9 @@ function Post({onAddNotice}) {
     }
 
     const handleAddNotice = () =>{
-        axios.post(`http://localhost:8000/notices/`,newNotice)
+        axios.post(`https://awful-pink-baseball-cap.cyclic.app/notices/`,newNotice)
         .then(res=>{
-            onAddNotice(res.data)
+            onAddNotice(newNotice)
             setNewNotice({author:"",title:"",notice:""})
             alert("Notice Added")
         })
@@ -24,12 +25,13 @@ function Post({onAddNotice}) {
   return (
     <>
      <h1>Add Notice</h1>
-     <form action="">
+     <div id="form"><form action="">
         <label>Author Name:<input type='text' name='author' value={newNotice.author} onChange={handleChange}></input></label>
         <label>Title:<input type='text' name='title' value={newNotice.title} onChange={handleChange}></input></label>
         <label>Notice:<input type='text' name='notice' value={newNotice.notice} onChange={handleChange}></input></label>
         <button type='button' onClick={handleAddNotice}>Add Notice</button>
-     </form>
+     </form></div>
+     
     </>
   )
 }

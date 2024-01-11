@@ -1,0 +1,12 @@
+#form{
+    display: flex;
+    border: solid red;
+    padding: 5px;
+    background-color: aqua;
+    margin: 5px;
+}
+#form label{
+    margin: 5px;
+    display: block;
+
+}
